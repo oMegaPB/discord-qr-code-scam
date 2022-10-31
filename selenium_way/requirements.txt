@@ -1,0 +1,5 @@
+beautifulsoup4=4.11.1
+selenium=4.5.0
+pillow==9.3.0
+lxml==4.9.1
+webdriver-manager==3.8.4
