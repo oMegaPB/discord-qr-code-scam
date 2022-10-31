@@ -1,2 +1,5 @@
-# qr-code-scam
-this is how backend of qr scamming looks like
+****
+__EDUCATIONAL PURPOSES ONLY. (2 ways)__
+-----
+**Working for 01.11.2022**
+____
