@@ -5,3 +5,5 @@ __EDUCATIONAL PURPOSES ONLY. (2 ways)__
 --
 **UPD: Not working for 02.11.2022. (Captcha required)**
 ____
+**UPD: Working again for 08.11.2022 :shrug:**
+____
