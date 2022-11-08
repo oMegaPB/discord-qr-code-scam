@@ -37,10 +37,10 @@ class DiscordAuthWebsocket:
     async def exchange_ticket(self, ticket, session: aiohttp.ClientSession):
         print(f'Exch ticket: {ticket}')
         r = await session.post(self.LOGIN_ENDPOINT, json={'ticket': ticket})
-        print(r)
         if not r.status == 200:
-            print(f"Exch ticket Failed. {r.status}") # qr scamming got fixed 02.11.2022
-            print(await r.json()) # 400 {'captcha_key': ['captcha-required']}
+            print(f"Exch ticket Failed. {r.status}")
+            result = await r.json()
+            print(result)
             return
         json: dict = await r.json()
         return json.get('encrypted_token')
