@@ -22,10 +22,3 @@ class DiscordUser:
                    discrim=values[1],
                    avatar_hash=values[2],
                    username=values[3])
-
-    def pretty_print(self):
-        out = ''
-        out += f'User:            {self.username}#{self.discrim} ({self.id})\n'
-        out += f'Avatar URL:      https://cdn.discordapp.com/avatars/{self.id}/{self.avatar_hash}.png\n'
-        out += f'Token: {self.token}\n'
-        return out
